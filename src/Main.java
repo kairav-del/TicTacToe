@@ -46,27 +46,3 @@ public class Main {
         }
     }
 }
-/*
-        int array[] = {4,3,5,6,4,0,9,5,1};
-
-        for (int i = 0; i < array.length-1; i++) {
-            int min = i;
-            for (int j = i+ 1; j < array.length; j++) {
-                if(array[j] < array[min]){
-                    min = j;
-                }
-            }
-            int temp = array[min];
-            array[min] = array[i];
-            array[i] = temp;
-        }
-
-        System.out.println(Arrays.toString(array));
-
-
-
-        /*for(int i : array)
-        {
-            System.out.print(i);
-        }
-         */
