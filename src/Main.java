@@ -5,6 +5,9 @@ public class Main {
 
     Scanner scanner = new Scanner(System.in);
 
+    TicTacToe game = new TicTacToe(3,"Kairav");
+
+    /*
     System.out.println("Skip introduction and jump straight to the game? (Y or N)");
     String skipPrelude = scanner.nextLine();
 
@@ -53,20 +56,29 @@ public class Main {
             }
         }
 
+
+     */
+
         while(!game.getGameStatus()){
+
+            if(game.boardFilled()){
+                System.out.println("Board Filled! ");
+                System.exit(0);
+            }
+
             game.printBoard();
             System.out.println("Enter the row: ");
             int rowInput = scanner.nextInt();
             System.out.println("Enter the colum: ");
             int columInput = scanner.nextInt();
 
-            if(game.boardFilled()){
-                System.out.println("Board Filled!");
-            }
+
 
             if(game.pickLocation(rowInput, columInput)){
+
                 game.takeTurn(rowInput, columInput);
             }
+
             if(game.checkWin()){
                 System.out.println("We have a winner!");
                 System.exit(0);

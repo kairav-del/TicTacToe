@@ -104,6 +104,7 @@ public class TicTacToe {
                 }
 
                 if(check){
+                    System.out.println("row worked");
                     return true;
                 }
             }
@@ -113,43 +114,44 @@ public class TicTacToe {
         }
 
 
-        public boolean checkCol()
-        {
-            for(int i = 0; i < 3; i++){
-                boolean check = true;
+    public boolean checkCol()
+    {
+        for(int col = 0; col < 3; col++){
+            boolean check = true;
 
-                for(int j = 0; j < 3; j++){
-                    if(board[j][0] != board[j][i]){
-                        check = false;
-                    }
-                }
+            for(int row = 0; row < 3; row++){
 
-                if(check){
-                    return true;
+                if(board[0][col] != board[row][col] && !(board[row][col].equals("X") || board[row][col].equals("O"))){
+                    check = false;
                 }
             }
 
-            return false;
+            if(check){
+                System.out.println("col worked on");
+                return true;
+            }
         }
+        return false;
+    }
 
         public boolean checkDiag()
         {
             if(board[0][0] == "O" && board[1][1] == "O" && board[2][2] == "O"){
-                //System.out.println("Player Won");
+                System.out.println("Player Won");
                 return true;
             }
             else if(board[2][0] == "O" && board[1][1] == "O" && board[2][0] == "O"){
-                //System.out.println("Player Won");
+                System.out.println("Player Won");
                 return true;
             }
 
             else if(board[0][0] == "X" && board[1][1] == "X" && board[2][2] == "X"){
-                //System.out.println("Computer Won");
+                System.out.println("Computer Won");
                 return true;
             }
 
             else if(board[2][0] == "X" && board[1][1] == "X" && board[2][0] == "X"){
-                //System.out.println("Computer Won");
+                System.out.println("Computer Won");
                 return true;
             }
             else{
