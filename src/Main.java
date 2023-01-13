@@ -1,7 +1,7 @@
 import java.util.Scanner;
 
 public class Main {
-    public static void main(String[] args) {
+    public static void main(String[] args)  {
 
     Scanner scanner = new Scanner(System.in);
 
@@ -22,6 +22,7 @@ public class Main {
             skipPrelude = temp;
             }
         }
+
 
         System.out.println("Welcome Player! \nBefore we kick off the game, we'll need to set your name and choose who goes first. \n");
         System.out.println("First of all, what should we call you?");
