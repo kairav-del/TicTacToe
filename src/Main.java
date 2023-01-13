@@ -23,9 +23,13 @@ public class Main {
             }
         }
 
+        System.out.println("\r");
 
         System.out.println("Welcome Player! \nBefore we kick off the game, we'll need to set your name and choose who goes first. \n");
         System.out.println("First of all, what should we call you?");
+
+        //check if the user will want to go first or second. First would imply that "turn" is an even number. we'll ask more questions later on
+
         String userNameInput = scanner.nextLine();
         TicTacToe game = new TicTacToe(2, userNameInput);
 
@@ -48,6 +52,31 @@ public class Main {
                 tutorialYesOrNo = temp;
             }
         }
+
+        while(!game.getGameStatus()){
+            game.printBoard();
+            System.out.println("Enter the row: ");
+            int rowInput = scanner.nextInt();
+            System.out.println("Enter the colum: ");
+            int columInput = scanner.nextInt();
+
+            if(game.boardFilled()){
+                System.out.println("Board Filled!");
+            }
+
+            if(game.pickLocation(rowInput, columInput)){
+                game.takeTurn(rowInput, columInput);
+            }
+            if(game.checkWin()){
+                System.out.println("We have a winner!");
+                System.exit(0);
+            }
+
+
+        }
+
+
+
 
     }
 }

@@ -1,5 +1,6 @@
 public class TicTacToe {
     private int turn;
+    private boolean gameEnded = false;
     private String userName;
     private String[][] board = {
 
@@ -29,6 +30,10 @@ public class TicTacToe {
         public String getUserName(){return userName;}
         public void setUserName(String userName){
             this.userName = userName;
+        }
+
+        public boolean getGameStatus(){
+            return gameEnded;
         }
 
         public void printBoard()
@@ -120,7 +125,6 @@ public class TicTacToe {
                 }
 
                 if(check){
-                    System.out.println("works!");
                     return true;
                 }
             }
@@ -158,28 +162,29 @@ public class TicTacToe {
         public boolean checkWin()
         {
             if(checkDiag() || checkCol() || checkRow()){
-                return true;
+                gameEnded = true;
             }
             else{
                 return false;
             }
 
+            return false;
         }
 
-        public boolean gameEnded(){
+        public boolean boardFilled(){
 
             //Initially the game continues (even though it's set as false), it'll end if all the squares are filled. Which is the "!gameEnded" line.
-            boolean gameEnded = false;
+            boolean boardFilled = false;
 
             for (int i = 0; i < board.length; i++) {
                 for (int j = 0; j < board[0].length; j++) {
 
                     if(board[i][j].equals("-")) {
-                        gameEnded = true;
+                        boardFilled = true;
                     }
                 }
             }
-            return !gameEnded;
+            return !boardFilled;
         }
 
    /*
