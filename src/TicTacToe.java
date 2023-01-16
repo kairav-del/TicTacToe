@@ -91,47 +91,50 @@ public class TicTacToe {
         }
 
 
-        public boolean checkRow()
-        {
+        public boolean checkRow() {
 
-            for(int i = 0; i < 3; i++){
+            for (int row = 0; row < 3; row++) {
                 boolean check = true;
 
-                for(int j = 0; j < 3; j++){
-                    if(board[i][0] != board[i][j]){
+                for (int col = 0; col < 3; col++) {
+
+                    if(board[row][col].equals("-")) {
+                        check = false;
+                    }
+                    if (board[row][0] != board[row][col]) {
                         check = false;
                     }
                 }
 
-                if(check){
+                if (check) {
                     System.out.println("row worked");
                     return true;
                 }
             }
-
             return false;
-
         }
 
+    public boolean checkCol() {
 
-    public boolean checkCol()
-    {
-        for(int col = 0; col < 3; col++){
+        for (int col = 0; col < 3; col++) {
             boolean check = true;
 
-            for(int row = 0; row < 3; row++){
-
-                if(board[0][col] != board[row][col] && !(board[row][col].equals("X") || board[row][col].equals("O"))){
+            for (int row = 0; row < 3; row++) {
+                //System.out.println("checking row "+row+" col "+col);
+                if(board[row][col].equals("-")) {
+                    check = false;
+                }
+                if (board[0][col] != board[row][col]) {
                     check = false;
                 }
             }
-
-            if(check){
-                System.out.println("col worked on");
+            if (check) {
+                System.out.println("Win found on col "+col);
                 return true;
             }
         }
         return false;
+
     }
 
         public boolean checkDiag()
@@ -188,15 +191,12 @@ public class TicTacToe {
             }
             return !boardFilled;
         }
-
-   /*
-   public void printWinner(){
-       //checks if turn is even or odd, and returns the value.
-   }
-   */
-
-        public void showcaseGameTutorial(){
+        public static void showcaseGameTutorial(){
             System.out.println("lol");
+        }
+
+        public void startGame(){
+
         }
 
     }

@@ -5,9 +5,6 @@ public class Main {
 
     Scanner scanner = new Scanner(System.in);
 
-    TicTacToe game = new TicTacToe(3,"Kairav");
-
-    /*
     System.out.println("Skip introduction and jump straight to the game? (Y or N)");
     String skipPrelude = scanner.nextLine();
 
@@ -15,6 +12,8 @@ public class Main {
     while (continueAsking) {
         if (skipPrelude.equals("y") || skipPrelude.equals("yes") || skipPrelude.equals("Y") || skipPrelude.equals("Yes")) {
             continueAsking = false;
+            TicTacToe.showcaseGameTutorial();
+
         } else if (skipPrelude.equals("n") || skipPrelude.equals("no") || skipPrelude.equals("N") || skipPrelude.equals("No")) {
             System.out.println("Buckle up your seatbealts to have fun!");
             continueAsking = false;
@@ -34,6 +33,10 @@ public class Main {
         //check if the user will want to go first or second. First would imply that "turn" is an even number. we'll ask more questions later on
 
         String userNameInput = scanner.nextLine();
+
+        System.out.println("Now, would you like to go first or second?");
+
+
         TicTacToe game = new TicTacToe(2, userNameInput);
 
         System.out.println("Got it " + game.getUserName() + "! Would you like an intro on how the game works? (Y or N)");
@@ -57,7 +60,8 @@ public class Main {
         }
 
 
-     */
+
+
 
         while(!game.getGameStatus()){
 
@@ -72,12 +76,10 @@ public class Main {
             System.out.println("Enter the colum: ");
             int columInput = scanner.nextInt();
 
-
-
             if(game.pickLocation(rowInput, columInput)){
-
                 game.takeTurn(rowInput, columInput);
             }
+            game.printBoard();
 
             if(game.checkWin()){
                 System.out.println("We have a winner!");
@@ -87,8 +89,8 @@ public class Main {
 
         }
 
-
-
-
     }
+
 }
+
+
